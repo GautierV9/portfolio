@@ -1,0 +1,29 @@
+---
+const socialLinks = [
+  { href: "https://www.behance.net/", icon: "/behance.svg", label: "Behance" },
+  { href: "https://www.instagram.com/", icon: "/instagram.svg", label: "Instagram" },
+  { href: "https://www.linkedin.com/", icon: "/linkedin.svg", label: "LinkedIn" },
+];
+---
+
+<footer class="bg-black w-full py-6">
+  <div class="max-w-4xl mx-auto flex items-start justify-between px-8">
+    <div class="flex flex-col items-start gap-4">
+      <a href="/propos" class="text-[#bcff69] text-lg font-normal">Me connaître</a>
+      <a href="/liste" class="text-[#bcff69] text-lg font-normal">Mes projets</a>
+      <a href=/contact" class="text-[#bcff69] text-lg font-normal">Me contacter</a>
+      <div class="flex items-center gap-6 mt-4">
+        {
+          socialLinks.map(link => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition" key={link.label}>
+              <img src={link.icon} alt={link.label} class="h-12 w-12" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <a href="/" class="flex items-center">
+      <img src="/logopf.svg" alt="Logo" class="h-16 w-auto" />
+    </a>
+  </div>
+</footer>

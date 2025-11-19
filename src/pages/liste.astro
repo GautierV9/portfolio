@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+
+const projects = [
+  {
+    title: "Orbite",
+    img: "/Orbite.png",
+    desc: "Plateforme numérique innovante pensée pour les étudiants, qui leur permet de créer, rejoindre et dynamiser leur vie sociale grâce à des événements adaptés.",
+    tags: ["Figma", "Illustrator"],
+    additionalTags: "+ Plus de tags",
+    isRecent: true,
+    link: "#orbite"
+  },
+  {
+    title: "Pulse",
+    img: "/Pulse.png",
+    desc: "Plateforme numérique innovante pensée pour les étudiants, qui leur permet de créer, rejoindre et dynamiser leur vie sociale grâce à des événements adaptés.",
+    tags: ["Figma", "Photoshop"],
+    additionalTags: "+ Plus de tags",
+    isRecent: true,
+    link: "#pulse"
+  },
+  {
+    title: "Portfolio",
+    img: "/Portfolio.png",
+    desc: "Portfolio personnel conçu pour présenter mes compétences, projets et expériences professionnelles de manière interactive et moderne.",
+    tags: ["Figma", "Illustrator"],
+    additionalTags: "+ Plus de tags",
+    isRecent: false,
+    link: "#portfolio"
+  }
+];
+
+const allTags = ["Figma", "Illustrator", "InDesign", "Photoshop"];
+---
+
+<Layout>
+  <Header />
+  <section class="w-full pb-24 pt-12 min-h-screen" style="background-color: #1a2332;">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col gap-12">
+      <div class="text-left">
+        <h1 class="text-white text-3xl font-bold mb-1">Mes projets</h1>
+        <p class="text-sm" style="color: rgba(255, 255, 255, 0.4);">Découvrez mes réalisations et projets</p>
+      </div>
+      <div class="flex flex-wrap gap-3 items-center">
+        <button class="filter-btn px-6 py-2.5 rounded-full font-medium transition active" data-tag="all" style="background-color: #6366f1; color: white;">
+          Tous les projets
+        </button>
+        {allTags.map(tag => (
+          <button class="filter-btn px-6 py-2.5 rounded-full font-medium transition" data-tag={tag} style="background-color: #1f2937; color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
+            {tag}
+          </button>
+        ))}
+      </div>
+
+      <div id="project-list" class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        {projects.map(({title, img, desc, tags, additionalTags, isRecent, link}) => (
+          <div class="project-card rounded-3xl shadow-xl overflow-hidden flex flex-col p-4" data-tags={JSON.stringify(tags)} style="background: linear-gradient(135deg, #4c52cc 0%, #3d42b0 100%);">
+            <div class="rounded-2xl m-6 mb-3 p-8 flex items-center justify-center" style="background: linear-gradient(135deg, #5c62dc 0%, #4d52c0 100%); width: calc(100% - 3rem); aspect-ratio: 1/1; max-width: 200px; margin-left: auto; margin-right: auto;">
+              <img src={img || "/placeholder.svg"} alt={title} class="w-full h-full object-contain" />
+            </div>
+            <div class="px-6 pb-6 flex flex-col flex-grow">
+              <h3 class="text-white text-xl font-bold mb-2">{title}</h3>
+              <p class="text-sm leading-relaxed mb-4 line-clamp-3" style="color: rgba(255, 255, 255, 0.6);">{desc}</p>
+              <div class="flex flex-wrap gap-2 mb-3">
+                {tags.map(tag => (
+                  <span class="text-white text-xs px-3 py-1.5 rounded-full font-medium" style="background-color: rgba(0, 0, 0, 0.4);">{tag}</span>
+                ))}
+                <span class="text-xs px-3 py-1.5 rounded-full font-medium" style="background-color: rgba(0, 0, 0, 0.4); color: #c4ff61;">{additionalTags}</span>
+              </div>
+              {isRecent && (
+                <span class="text-xs px-4 py-1.5 rounded-full font-bold mb-4 inline-block self-start" style="background-color: #c4ff61; color: #000;">Projet récent</span>
+              )}
+              <a href={link} class="w-full mt-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full text-white font-medium group text-sm transition-all duration-300" style="background-color: rgba(0, 0, 0, 0.6); border: 2px solid #c4ff61;">
+                Voir plus
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="transition-transform group-hover:translate-x-1">
+                  <path d="M8 3L13 8L8 13M13 8H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>
+
+<script>
+  function initFilters() {
+    const projectCards = document.querySelectorAll('.project-card');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const allButton = document.querySelector('[data-tag="all"]');
+    let selectedTags = new Set();
+    
+    console.log('[v0] Filters initialized', { projectCards: projectCards.length, filterButtons: filterButtons.length });
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedTag = button.getAttribute('data-tag');
+        console.log('[v0] Filter clicked:', selectedTag);
+        
+        if (selectedTag === 'all') {
+          selectedTags.clear();
+          filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-tag') !== 'all') {
+              btn.style.backgroundColor = '#1f2937';
+              btn.style.color = 'rgba(255, 255, 255, 0.7)';
+              btn.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+            }
+          });
+          if (allButton) {
+            allButton.classList.add('active');
+            allButton.style.backgroundColor = '#6366f1';
+            allButton.style.color = 'white';
+            allButton.style.border = 'none';
+          }
+          
+          projectCards.forEach(card => {
+            card.style.display = 'flex';
+          });
+        } else {
+          if (selectedTags.has(selectedTag)) {
+            selectedTags.delete(selectedTag);
+            button.classList.remove('active');
+            button.style.backgroundColor = '#1f2937';
+            button.style.color = 'rgba(255, 255, 255, 0.7)';
+            button.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+          } else {
+            selectedTags.add(selectedTag);
+            button.classList.add('active');
+            button.style.backgroundColor = '#6366f1';
+            button.style.color = 'white';
+            button.style.border = 'none';
+          }
+          
+          if (allButton) {
+            allButton.classList.remove('active');
+            allButton.style.backgroundColor = '#1f2937';
+            allButton.style.color = 'rgba(255, 255, 255, 0.7)';
+            allButton.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+          }
+          
+          if (selectedTags.size === 0) {
+            if (allButton) {
+              allButton.classList.add('active');
+              allButton.style.backgroundColor = '#6366f1';
+              allButton.style.color = 'white';
+              allButton.style.border = 'none';
+            }
+            projectCards.forEach(card => {
+              card.style.display = 'flex';
+            });
+            return;
+          }
+          
+          projectCards.forEach(card => {
+            const cardTagsStr = card.getAttribute('data-tags');
+            const cardTags = cardTagsStr ? JSON.parse(cardTagsStr) : [];
+            const hasMatchingTag = cardTags.some(tag => selectedTags.has(tag));
+            
+            console.log('[v0] Card:', card.querySelector('h3')?.textContent, 'Tags:', cardTags, 'Match:', hasMatchingTag);
+            
+            if (hasMatchingTag) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+      });
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFilters);
+  } else {
+    initFilters();
+  }
+</script>

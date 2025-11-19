@@ -1,0 +1,131 @@
+---
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+import Hero from '../components/hero.astro';
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <Header />
+    <Hero />
+    <section class="w-full py-16 bg-[#101c2b] min-h-[50vh]">
+  <div class="max-w-2xl mx-auto px-4">
+    <h2 class="text-white text-5xl font-light mb-10">À propos de moi</h2>
+    <div class="text-white/80 text-base leading-relaxed space-y-4">
+      <p>
+        Je m'appelle Gautier Vicat, passionné par la création visuelle et l'expérience utilisateur.  
+        Grâce à une solide formation et une curiosité naturelle pour le design et le numérique, j'ai développé un profil polyvalent mêlant technique, créativité et communication.
+      </p>
+
+      <p>
+        Au fil de mon parcours, j'ai évolué du graphisme aux interfaces en passant par le développement web et l'audiovisuel. J’aime concevoir des identités et des expériences interactives, centrées sur l'utilisateur.
+      </p>
+      <p>
+        Aujourd’hui, je recherche sans cesse des projets qui rassemblent création graphique, storytelling et design UX/UI pour créer des solutions à la fois esthétiques et utiles.  
+        Retrouvez ci-dessous un aperçu de mes réalisations les plus récentes.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="w-full py-20 bg-[#101c2b]">
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+    <h2 class="text-[#bcff69] text-4xl font-bold mb-8 px-2">Mes compétences</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Design Graphique</h3>
+        <div class="mb-4">
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>Adobe InDesign</span><span>90%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 90%;"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>Adobe Illustrator</span><span>85%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>Adobe Photoshop</span><span>88%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 88%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>Figma</span><span>92%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 92%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Développement</h3>
+        <div class="mb-4">
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>HTML/CSS</span><span>85%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>JavaScript</span><span>75%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 75%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>React</span><span>70%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 70%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Prototypage & UX</h3>
+        <div>
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>Adobe XD</span><span>88%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 88%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Vidéo & Animation</h3>
+        <div class="mb-4">
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>Premiere Pro</span><span>80%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-white text-[15px] mb-1">
+            <span>After Effects</span><span>75%</span>
+          </div>
+          <div class="h-2 bg-[#182235] rounded">
+            <div class="bg-[#bcff69] h-2 rounded" style="width: 75%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <Footer /> 
+</Layout>

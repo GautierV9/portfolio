@@ -1,0 +1,27 @@
+---
+const nom = "Gautier";
+const prenom = "Vicat";
+const job = "Designer graphique & UX/UI";
+const imgSrc = "/moi.png";
+---
+
+<section class="bg-[#101c2b] w-full pt-6 pb-24 sm:pb-52 relative overflow-visible">
+  <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 px-6 sm:flex-row sm:gap-14 sm:items-center">
+    <div class="relative flex-shrink-0 h-[180px] w-[180px] mt-2 sm:h-[220px] sm:w-[220px] sm:mr-10">
+      <div class="absolute inset-0 rounded-full bg-white z-0"></div>
+      <img src={imgSrc} alt="Photo portrait" class="relative rounded-full h-full w-full object-cover z-10 border-8 border-white" />
+      <span class="absolute z-20 top-[28px] left-[-10px] h-2 w-10 rounded-full bg-[#bcff69] sm:w-12 sm:left-[-10px] sm:top-[38px]" />
+      <span class="absolute z-20 top-[54px] left-[-16px] h-2 w-14 rounded-full bg-[#5363ee] sm:w-18 sm:top-[75px] sm:left-[-32px]" />
+      <span class="absolute z-20 bottom-[18px] right-[-5px] h-2 w-8 rounded-full bg-[#bcff69] sm:w-10 sm:bottom-[34px] sm:right-[-5px]" />
+    </div>
+    <div class="flex flex-col items-center mt-6 sm:mt-0 sm:items-start sm:flex-1">
+      <span class="text-white text-3xl font-light mb-2 sm:text-5xl">{prenom}</span>
+      <span class="text-white text-5xl font-extrabold leading-[1.1] mb-2 sm:text-7xl">{nom}</span>
+      <span class="text-[#5363ee] text-lg mt-2 sm:text-2xl">{job}</span>
+    </div>
+  </div>
+  <div class="w-full flex flex-col items-center absolute left-0 right-0 bottom-12 sm:bottom-24">
+    <hr class="border-[#bcff69] border-[3px] rounded-lg w-[90vw] mb-2 sm:w-[75vw]" />
+    <span class="text-[#bcff69] text-3xl font-bold sm:text-4xl">&#9660;</span>
+  </div>
+</section>

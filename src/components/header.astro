@@ -1,0 +1,64 @@
+---
+const navLinks = [
+  { href: "/propos", label: "Me connaître" },
+  { href: "/liste", label: "Mes Projets" },
+  { href: "/contact", label: "Me contacter" },
+];
+---
+
+<header class="bg-[#101c2b] w-full py-4">
+  <div class="flex items-center justify-center gap-12 w-full max-w-6xl mx-auto relative">
+    <a href="/" class="flex items-center">
+      <img src="/logopf.svg" alt="Logo" class="h-14 w-auto" />
+    </a>
+    <nav class="hidden md:flex ml-auto">
+      <ul class="flex gap-0">
+        <li class="rounded-l-full bg-[#6d7ffc] px-8 py-3 flex items-center">
+          <a href={navLinks[0].href} class="text-white text-base font-normal">{navLinks[0].label}</a>
+        </li>
+        <li class="bg-[#6d7ffc] px-8 py-3 flex items-center">
+          <a href={navLinks[1].href} class="text-white text-base font-normal">{navLinks[1].label}</a>
+        </li>
+        <li class="rounded-r-full bg-[#6d7ffc] px-8 py-3 flex items-center">
+          <a href={navLinks[2].href} class="text-white text-base font-normal">{navLinks[2].label}</a>
+        </li>
+      </ul>
+    </nav>
+    <button id="burger-btn" class="md:hidden ml-auto" aria-label="Ouvrir le menu">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="6" y="9" width="20" height="2.5" rx="1.25" fill="#6d7ffc"/>
+        <rect x="6" y="15" width="20" height="2.5" rx="1.25" fill="#6d7ffc"/>
+        <rect x="6" y="21" width="20" height="2.5" rx="1.25" fill="#6d7ffc"/>
+      </svg>
+    </button>
+    <nav id="mobile-nav" class="fixed inset-0 bg-[#101c2b] flex flex-col items-center justify-center z-40 hidden md:hidden" style="height:100vh; width:100vw;">
+      <div class="absolute left-6 top-6">
+        <img src="/logopf.svg" alt="Logo" class="h-14 w-auto" />
+      </div>
+      <button id="close-btn" class="absolute top-8 right-8" aria-label="Fermer le menu">
+        <span class="text-[#6d7ffc] text-4xl font-bold">×</span>
+      </button>
+      <ul class="flex flex-col gap-10 mt-14">
+        <li>
+          <a href={navLinks[1].href} class="text-[#bcff69] text-2xl font-bold">{navLinks[1].label}</a>
+        </li>
+        <li>
+          <a href={navLinks[0].href} class="text-[#bcff69] text-2xl font-bold">{navLinks[0].label}</a>
+        </li>
+        <li>
+          <a href={navLinks[2].href} class="text-[#bcff69] text-2xl font-bold">{navLinks[2].label}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script type="text/javascript" is:inline>
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const closeBtn = document.getElementById('close-btn');
+    burgerBtn?.addEventListener('click', () => mobileNav.classList.remove('hidden'));
+    closeBtn?.addEventListener('click', () => mobileNav.classList.add('hidden'));
+    mobileNav?.addEventListener('click', (e) => {
+      if (e.target === mobileNav) mobileNav.classList.add('hidden');
+    });
+  </script>
+</header>
