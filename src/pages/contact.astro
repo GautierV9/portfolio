@@ -1,13 +1,95 @@
 ---
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
-import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 ---
 
 <Layout>
   <Header />
+
+  <section class="min-h-[90vh] w-full bg-[#101c2b] py-10">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-white text-3xl md:text-4xl font-light mb-3">Me contacter</h2>
+      <p class="text-white/80 text-sm mb-8 max-w-xl">
+        Voici un formulaire pour me contacter directement par mail.<br />
+        Vous pouvez aussi me joindre sur mes réseaux qui se trouvent en bas de cette page.
+      </p>
+      <form
+        action="https://formspree.io/f/xldzjvay"
+        method="POST"
+        class="flex flex-col gap-4"
+      >
+        <div>
+          <label class="block text-[#c4ff61] font-medium mb-1 mt-2">Prénom</label>
+          <input
+            type="text"
+            name="prenom"
+            placeholder="Entrez votre prénom ici"
+            required
+            class="w-full rounded-full px-5 py-3 bg-[#454fb5] text-white placeholder-white/90 outline-none focus:ring-2 focus:ring-[#c4ff61] transition"
+          />
+        </div>
+        <div>
+          <label class="block text-[#c4ff61] font-medium mb-1 mt-1">Nom</label>
+          <input
+            type="text"
+            name="nom"
+            placeholder="Entrez votre nom ici"
+            required
+            class="w-full rounded-full px-5 py-3 bg-[#454fb5] text-white placeholder-white/90 outline-none focus:ring-2 focus:ring-[#c4ff61] transition"
+          />
+        </div>
+        <div>
+          <label class="block text-[#c4ff61] font-medium mb-1 mt-1">Mail</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Entrez votre Mail ici"
+            required
+            class="w-full rounded-full px-5 py-3 bg-[#454fb5] text-white placeholder-white/90 outline-none focus:ring-2 focus:ring-[#c4ff61] transition"
+          />
+        </div>
+        <div>
+          <label class="block text-[#c4ff61] font-medium mb-1 mt-1">Objet</label>
+          <input
+            type="text"
+            name="objet"
+            placeholder="Indiquez l’objet du message ici"
+            required
+            class="w-full rounded-full px-5 py-3 bg-[#454fb5] text-white placeholder-white/90 outline-none focus:ring-2 focus:ring-[#c4ff61] transition"
+          />
+        </div>
+        <div>
+          <label class="block text-[#c4ff61] font-medium mb-1 mt-1">Message</label>
+          <textarea
+            name="message"
+            required
+            placeholder="Écrivez votre message ici"
+            class="w-full rounded-2xl px-5 py-3 min-h-[110px] bg-[#454fb5] text-white placeholder-white/90 outline-none focus:ring-2 focus:ring-[#c4ff61] transition resize-none"
+          ></textarea>
+        </div>
+        <div class="flex justify-end mt-2">
+          <button
+            type="submit"
+            class="flex items-center px-6 py-2 rounded-full border-2 border-[#c4ff61] bg-[#101c2b] text-white hover:bg-[#c4ff61] hover:text-[#101c2b] font-semibold transition group"
+          >
+            Envoyer
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="ml-2 group-hover:translate-x-1 transition">
+              <polygon points="16,11 6,6 8,11 6,17" fill="#101c2b"/>
+              <polygon points="6,6 17,11 6,17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+      
+      <div class="mt-6">
+        <a href="/conf" class="text-[#c4ff61] underline underline-offset-4 hover:text-[#bcff69] font-medium transition">
+          Consulter la politique de confidentialité
+        </a>
+      </div>
+    </div>
+  </section>
   
   <Footer />
 </Layout>
- 

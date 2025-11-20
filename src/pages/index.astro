@@ -4,7 +4,7 @@ import '../styles/global.css';
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import Hero from '../components/hero.astro';
-const imgSrc = "/moi.png";
+const imgSrc = "/moi.jpg";
 const project = {
   title: "Portfolio",
   img: "/Portfolio.png",
@@ -12,9 +12,6 @@ const project = {
   link: "#portfolio",
   desc: "Un site portfolio complet réalisé en Astro, mettant en avant mes compétences en web design, développement et intégration UI/UX, ainsi que plusieurs travaux graphiques et interactifs."
 };
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
@@ -26,24 +23,24 @@ const project = {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div class="flex flex-col justify-center items-center">
         <div class="bg-gradient-to-tr from-[#181d29] via-black to-[#222f4a] rounded-3xl p-1 w-[310px] h-[360px] flex items-center justify-center shadow-xl group transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-          <img src={imgSrc} alt="Portrait" class="object-cover w-[230px] h-[300px] rounded-2xl shadow-lg group-hover:scale-105 transition" />
+          <img src={imgSrc || "/placeholder.svg"} alt="Portrait" class="object-cover w-[230px] h-[300px] rounded-2xl shadow-lg group-hover:scale-105 transition" />
         </div>
       </div>
       <div class="flex flex-col gap-8">
         <div class="relative bg-[#172033] rounded-3xl p-8 shadow-lg border border-[#27324c]">
-          <span class="absolute left-4 top-4 text-[#6d7ffc] text-4xl font-extrabold select-none opacity-70">“</span>
-          <span class="absolute right-6 bottom-4 text-[#6d7ffc] text-4xl font-extrabold select-none opacity-70">”</span>
+          <span class="absolute left-4 top-4 text-[#6d7ffc] text-4xl font-extrabold select-none opacity-70">"</span>
+          <span class="absolute right-6 bottom-4 text-[#6d7ffc] text-4xl font-extrabold select-none opacity-70">"</span>
           <p class="text-white text-lg font-semibold mb-2">
-            Passionné depuis toujours par l’univers du design et des technologies, j’ai découvert ma vocation en combinant créativité et innovation numérique.
+            Passionné depuis toujours par l'univers du design et des technologies, j'ai découvert ma vocation en combinant créativité et innovation numérique.
           </p>
           <p class="text-[#d1d5db] text-base mb-2">
-            Ce qui m’anime vraiment ? Transformer des idées en expériences visuelles captivantes. Que ce soit à travers le design graphique ou l’UX/UI, je cherche toujours à créer quelque chose qui résonne avec les utilisateurs.
+            Ce qui m'anime vraiment ? Transformer des idées en expériences visuelles captivantes. Que ce soit à travers le design graphique ou l'UX/UI, je cherche toujours à créer quelque chose qui résonne avec les utilisateurs.
           </p>
           <p class="text-[#d1d5db] text-base mb-2">
             En dehors de mes études en BUT MMI, je passe mon temps à explorer de nouvelles tendances design, à expérimenter avec différents outils créatifs, et à développer des projets qui challengent ma créativité.
           </p>
           <p class="text-[#bcff69] font-bold text-base mt-2">
-            Mon objectif : concevoir des interfaces intuitives et des identités visuelles mémorables qui font la différence.
+            Mon objectif : concevoir des interfaces intuitives et des identités visuelles mémorables qui font la différence.
           </p>
         </div>
         <div class="flex flex-row justify-end">
@@ -69,7 +66,7 @@ const project = {
     </p>
     <div class="w-full flex justify-center">
       <div class="bg-[#161e2d] border-2 border-[#6d7ffc] shadow-2xl rounded-3xl p-8 flex flex-col items-center w-full max-w-[420px]">
-        <img src={project.img} alt={project.title}
+        <img src={project.img || "/placeholder.svg"} alt={project.title}
           class="w-[160px] h-[160px] object-contain mb-5 drop-shadow-xl" />
         <h3 class="text-[#bcff69] text-2xl font-extrabold mb-2">{project.title}</h3>
         <p class="text-white text-base mb-4 text-center">{project.desc}</p>
@@ -104,32 +101,48 @@ const project = {
       <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
         <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Design Graphique</h3>
         <div class="mb-4">
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>Adobe InDesign</span><span>90%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/id.webp" alt="InDesign" class="w-8 h-8 object-contain" />
+              <span>Adobe InDesign</span>
+            </div>
+            <span>90%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 90%;"></div>
           </div>
         </div>
         <div class="mb-4">
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>Adobe Illustrator</span><span>85%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/ai.webp" alt="Illustrator" class="w-8 h-8 object-contain" />
+              <span>Adobe Illustrator</span>
+            </div>
+            <span>85%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 85%;"></div>
           </div>
         </div>
         <div class="mb-4">
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>Adobe Photoshop</span><span>88%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/ps.webp" alt="Photoshop" class="w-8 h-8 object-contain" />
+              <span>Adobe Photoshop</span>
+            </div>
+            <span>88%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 88%;"></div>
           </div>
         </div>
         <div>
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>Figma</span><span>92%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/figma.webp" alt="Figma" class="w-8 h-8 object-contain" />
+              <span>Figma</span>
+            </div>
+            <span>92%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 92%;"></div>
@@ -139,35 +152,40 @@ const project = {
       <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
         <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Développement</h3>
         <div class="mb-4">
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>HTML/CSS</span><span>85%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/html.webp" alt="HTML/CSS" class="w-8 h-8 object-contain" />
+			  <img src="/css.webp" alt="HTML/CSS" class="w-8 h-8 object-contain" />
+              <span>HTML/CSS</span>
+            </div>
+            <span>85%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 85%;"></div>
           </div>
         </div>
         <div class="mb-4">
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>JavaScript</span><span>75%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/js.webp" alt="JavaScript" class="w-8 h-8 object-contain" />
+              <span>JavaScript</span>
+            </div>
+            <span>75%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 75%;"></div>
-          </div>
-        </div>
-        <div>
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>React</span><span>70%</span>
-          </div>
-          <div class="h-2 bg-[#182235] rounded">
-            <div class="bg-[#bcff69] h-2 rounded" style="width: 70%;"></div>
           </div>
         </div>
       </div>
       <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
         <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Prototypage & UX</h3>
         <div>
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>Adobe XD</span><span>88%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/xd.webp" alt="Adobe XD" class="w-8 h-8 object-contain" />
+              <span>Adobe XD</span>
+            </div>
+            <span>88%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 88%;"></div>
@@ -177,16 +195,24 @@ const project = {
       <div class="bg-[#161e2d] rounded-2xl p-6 shadow-lg">
         <h3 class="text-[#6d7ffc] text-xl font-semibold mb-6">Vidéo & Animation</h3>
         <div class="mb-4">
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>Premiere Pro</span><span>80%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/pr.webp" alt="Premiere Pro" class="w-8 h-8 object-contain" />
+              <span>Premiere Pro</span>
+            </div>
+            <span>80%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 80%;"></div>
           </div>
         </div>
         <div>
-          <div class="flex justify-between text-white text-[15px] mb-1">
-            <span>After Effects</span><span>75%</span>
+          <div class="flex items-center justify-between text-white text-[15px] mb-2">
+            <div class="flex items-center gap-3">
+              <img src="/ae.webp" alt="After Effects" class="w-8 h-8 object-contain" />
+              <span>After Effects</span>
+            </div>
+            <span>75%</span>
           </div>
           <div class="h-2 bg-[#182235] rounded">
             <div class="bg-[#bcff69] h-2 rounded" style="width: 75%;"></div>

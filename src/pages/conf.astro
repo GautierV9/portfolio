@@ -1,0 +1,50 @@
+---
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <Header />
+
+  <section class="w-full min-h-screen bg-[#101c2b] py-10 flex items-center">
+    <div class="max-w-3xl mx-auto px-6 py-8 bg-[#172033] rounded-2xl shadow-md">
+      <h1 class="text-white text-3xl md:text-4xl font-bold mb-6">Politique de confidentialité</h1>
+
+      <p class="text-white mb-5">
+        La protection de vos données personnelles est une priorité. Cette page explique en toute transparence quelles informations sont collectées sur ce site, et comment elles sont utilisées.
+      </p>
+
+      <h2 class="text-white text-2xl font-semibold mt-8 mb-3">Données collectées</h2>
+      <ul class="list-disc ml-6 text-white/90 space-y-1 mb-5">
+        <li class="text-white">
+          Ce site ne collecte pas de données personnelles lors de la navigation. Il n'y a ni cookies d'analyse ni tracking publicitaire.
+        </li>
+        <li class="text-white">
+          Lorsque vous utilisez le <strong>formulaire de contact</strong> pour envoyer un message, votre adresse e-mail et votre message sont transmis directement via le service Formspree afin de permettre une réponse.
+        </li>
+        <li>
+          <span class="font-semibold text-[#bcff69]">Aucune adresse e-mail n'est enregistrée ni conservée sur le site</span> <span class="text-white">: votre mail n'est ni stocké sur un serveur local ni réutilisé à d'autres fins. Seule la réception directe (via email) permet de vous répondre suite à votre demande.</span>
+        </li>
+      </ul>
+
+      <h2 class="text-white text-2xl font-semibold mt-8 mb-3">Utilisation des données</h2>
+      <p class="text-white mb-4">
+        Les informations fournies via le formulaire de contact servent uniquement à répondre à votre demande.<br />
+        Elles ne sont ni partagées avec des tiers, ni utilisées à des fins commerciales ou de marketing.
+      </p>
+
+      <h2 class="text-white text-2xl font-semibold mt-8 mb-3">Responsabilité et droits</h2>
+      <p class="text-white mb-4">
+        Vous disposez d’un droit d’accès, de suppression ou de modification concernant l’unique donnée transmise (votre message de contact), en en faisant la demande par mail.
+      </p>
+      
+      <p class="text-white text-sm mt-10 italic opacity-80">
+        Pour toute question concernant la confidentialité, contactez-moi via le formulaire ou par email affiché sur le site.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
